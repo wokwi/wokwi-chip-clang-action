@@ -1,0 +1,17 @@
+name: 'Compile Wokwi Custom Chip (C)'
+description: 'Compiles a Wokwi custom chip using clang'
+inputs:
+  sources:
+    description: 'List of C source files'
+    required: true
+    default: 'main.c'
+  chip-json:
+    description: 'Chip.json filename'
+    required: true
+    default: 'chip.json'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    SOURCES: ${{ inputs.sources }}
+    CHIP_JSON: ${{ inputs.chip-json }}

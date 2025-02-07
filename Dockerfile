@@ -1,6 +1,6 @@
 FROM alpine:3.18
 RUN apk update
-RUN apk add clang lld git make llvm
+RUN apk add clang lld git make llvm bash
 
 RUN git clone https://github.com/CraneStation/wasi-libc.git && \
     cd /wasi-libc && \

@@ -2,7 +2,7 @@ FROM alpine:3.21
 RUN apk update
 RUN apk add clang lld git make llvm bash curl
 
-RUN git clone https://github.com/CraneStation/wasi-libc.git && \
+RUN git clone -b wasi-sdk-27 --depth 1 https://github.com/CraneStation/wasi-libc.git && \
     cd /wasi-libc && \
     make install INSTALL_DIR=/opt/wasi-libc && \
     rm -rf /wasi-libc
